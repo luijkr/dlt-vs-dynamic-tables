@@ -12,16 +12,16 @@ orders = generate_orders(customers, products)
 transactions = generate_transactions(orders)
 
 spark.createDataFrame(customers).write.mode("overwrite").saveAsTable(
-    "main.reneluijk_dlt_vs_dynamic_tables.customers"
+    "<catalog>.<schema>.customers"
 )
 spark.createDataFrame(products).write.mode("overwrite").saveAsTable(
-    "main.reneluijk_dlt_vs_dynamic_tables.products"
+    "<catalog>.<schema>.products"
 )
 spark.createDataFrame(orders).write.mode("overwrite").saveAsTable(
-    "main.reneluijk_dlt_vs_dynamic_tables.orders"
+    "<catalog>.<schema>.orders"
 )
 spark.createDataFrame(transactions).write.mode("overwrite").saveAsTable(
-    "main.reneluijk_dlt_vs_dynamic_tables.transactions"
+    "<catalog>.<schema>.transactions"
 )
 
 # add more data to base tables
@@ -31,14 +31,14 @@ orders = generate_orders(customers, products)
 transactions = generate_transactions(orders)
 
 spark.createDataFrame(customers).write.mode("append").saveAsTable(
-    "main.reneluijk_dlt_vs_dynamic_tables.customers"
+    "<catalog>.<schema>.customers"
 )
 spark.createDataFrame(products).write.mode("append").saveAsTable(
-    "main.reneluijk_dlt_vs_dynamic_tables.products"
+    "<catalog>.<schema>.products"
 )
 spark.createDataFrame(orders).write.mode("append").saveAsTable(
-    "main.reneluijk_dlt_vs_dynamic_tables.orders"
+    "<catalog>.<schema>.orders"
 )
 spark.createDataFrame(transactions).write.mode("append").saveAsTable(
-    "main.reneluijk_dlt_vs_dynamic_tables.transactions"
+    "<catalog>.<schema>.transactions"
 )
